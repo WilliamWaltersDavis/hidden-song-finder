@@ -225,3 +225,25 @@ for key in list(total_i):
         split_list_2i = [x.split() for x in list_upper_2_2i]
         sorted_split_2i = [sorted(x) for x in split_list_2i]
         joined_sorted_2i = [listToString(x) for x in sorted_split_2i]
+
+        for i in range(len(joined_sorted_2i)):
+            song = joined_sorted_2i[i]
+
+            if song in total_2i:
+                total_2i[song] += 1
+                continue
+
+            best_match = None
+            best_ratio = 0
+
+            for key_2 in total_2i.keys():
+                match_ratio = SequenceMatcher(a=song, b=key_2).ratio()
+                if match_ratio >= 0.6 and match_ratio >= best_ratio:
+                    best_ratio = match_ratio
+                    best_match = key_2
+
+            if best_ratio >= 0.6 and best_match:
+                total_2i[best_match] += 1
+                continue
+
+            total_2i[song] = 1
