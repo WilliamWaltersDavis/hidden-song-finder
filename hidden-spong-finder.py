@@ -154,3 +154,4 @@ def punc_remover(title):
 
 list_cut_pun = [punc_remover(x) for x in list_cut]
 list_upper = [x.upper() for x in list_cut_pun]
+list_upper_2 = [x.replace('-', ' - ') for x in list_upper]
