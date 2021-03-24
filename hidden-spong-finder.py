@@ -203,3 +203,10 @@ unique_counter(joined_sorted)
 {k: v for k, v in sorted(total_i.items(), key=lambda item: item[1], reverse=True)}
 
 total_2i = total_i
+
+for key in list(total_i):
+    headers = {"Authorization": f"Bearer {access_token}"}
+    endpoint = "https://api.spotify.com/v1/search"
+    data = urlencode({"q": key, "type": "playlist"})
+    lookup_url = f"{endpoint}?{data}"
+    req = requests.get(lookup_url, headers=headers)
