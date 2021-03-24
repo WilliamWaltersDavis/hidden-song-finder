@@ -140,3 +140,5 @@ def colon_cutter (title):
         return title.split(':')[1]
     else:
         return title
+
+list_cut = [colon_cutter(x) for x in list_1]
