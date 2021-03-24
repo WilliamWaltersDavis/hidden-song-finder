@@ -250,3 +250,7 @@ for key in list(total_i):
                 continue
 
             total_2i[song] = 1
+
+
+#Second iteration dictionary (HtL)
+{k: v for k, v in sorted(total_2i.items(), key=lambda item: item[1], reverse=True)}
