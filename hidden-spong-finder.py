@@ -142,3 +142,14 @@ def colon_cutter (title):
         return title
 
 list_cut = [colon_cutter(x) for x in list_1]
+
+# removes punctuation ';' and '.'
+
+def punc_remover(title):
+    if ";" or "." in title:
+        return title.replace(';', ' ').replace('.', ' ')
+    else:
+        return title
+
+
+list_cut_pun = [punc_remover(x) for x in list_cut]
