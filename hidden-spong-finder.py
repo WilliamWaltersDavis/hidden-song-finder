@@ -133,3 +133,10 @@ def dash_finder(title):
 
 
 list_1 = list(filter(lambda title: dash_finder(title), splitlist))
+
+#removes entry before a ':'
+def colon_cutter (title):
+    if ":" in title:
+        return title.split(':')[1]
+    else:
+        return title
