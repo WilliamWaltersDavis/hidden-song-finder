@@ -76,3 +76,16 @@ class SpotifyAPI(object):
 
 client = SpotifyAPI(client_id, client_secret)
 client.perform_auth()
+
+
+#Searches via Spotify API
+access_token = client.access_token
+headers = {"Authorization": f"Bearer {access_token}"}
+endpoint = "https://api.spotify.com/v1/search"
+data = urlencode({"q": song_to_search, "type": "playlist"})
+print(data)
+
+lookup_url = f"{endpoint}?{data}"
+print(lookup_url)
+r = requests.get(lookup_url, headers=headers)
+print(r.status_code)
