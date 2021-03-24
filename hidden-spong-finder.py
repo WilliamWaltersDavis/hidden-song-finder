@@ -157,3 +157,12 @@ list_upper = [x.upper() for x in list_cut_pun]
 list_upper_2 = [x.replace('-', ' - ') for x in list_upper]
 split_list = [x.split() for x in list_upper_2]
 sorted_split = [sorted(x) for x in split_list]
+
+# converts list to string to allow for counting
+def listToString(s):
+    str1 = " "
+
+    return (str1.join(s)[1:])
+
+
+joined_sorted = [listToString(x) for x in sorted_split]
