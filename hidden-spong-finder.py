@@ -210,3 +210,6 @@ for key in list(total_i):
     data = urlencode({"q": key, "type": "playlist"})
     lookup_url = f"{endpoint}?{data}"
     req = requests.get(lookup_url, headers=headers)
+
+    if (len(req.json().get('playlists').get('items'))) <= 1:
+        continue
