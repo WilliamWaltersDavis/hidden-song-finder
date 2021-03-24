@@ -123,3 +123,13 @@ def split_chooser(descr):
 
 split = [split_chooser(x) for x in description_list]
 splitlist = sum(split, [])
+
+# checks to see if a "-" is present so cuts the non songs
+def dash_finder(title):
+    if "-" in title.lower():
+        return True
+    else:
+        return False
+
+
+list_1 = list(filter(lambda title: dash_finder(title), splitlist))
