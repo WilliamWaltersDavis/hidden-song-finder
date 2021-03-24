@@ -204,6 +204,9 @@ unique_counter(joined_sorted)
 
 total_2i = total_i
 
+
+#Second iteration for loop, incorporating previous functions
+
 for key in list(total_i):
     headers = {"Authorization": f"Bearer {access_token}"}
     endpoint = "https://api.spotify.com/v1/search"
