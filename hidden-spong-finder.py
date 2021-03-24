@@ -93,3 +93,7 @@ print(r.status_code)
 
 #Checks number of playlists
 len(r.json().get('playlists').get('items'))
+
+
+description_list = [x.get('description') for x in r.json().get('playlists').get('items')]
+
