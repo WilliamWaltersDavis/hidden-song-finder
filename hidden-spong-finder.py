@@ -89,3 +89,7 @@ lookup_url = f"{endpoint}?{data}"
 print(lookup_url)
 r = requests.get(lookup_url, headers=headers)
 print(r.status_code)
+
+
+#Checks number of playlists
+len(r.json().get('playlists').get('items'))
