@@ -197,3 +197,7 @@ def unique_counter(list_of_songs):
         total_i[song] = 1
 
 unique_counter(joined_sorted)
+
+
+#First iteration dictionary (HtL)
+{k: v for k, v in sorted(total_i.items(), key=lambda item: item[1], reverse=True)}
