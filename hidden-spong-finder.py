@@ -97,3 +97,29 @@ len(r.json().get('playlists').get('items'))
 
 description_list = [x.get('description') for x in r.json().get('playlists').get('items')]
 
+
+# Chooses what item divides tracks and splits by it
+def split_chooser(descr):
+    num1 = descr.count('&#x2F;&#x2F')
+    num2 = descr.count('|')
+    num3 = descr.count(',')
+    num4 = descr.count('│')
+    num5 = descr.count('&#x2F')
+    num6 = descr.count(' l ')
+
+    if (num1 >= num2) and (num1 >= num3) and (num1 >= num4) and (num1 >= num5) and (num1 >= num6):
+        return descr.split('&#x2F;&#x2F')
+    elif (num2 >= num1) and (num2 >= num3) and (num2 >= num4) and (num2 >= num5) and (num2 >= num6):
+        return descr.split('|')
+    elif (num3 >= num1) and (num3 >= num2) and (num3 >= num4) and (num3 >= num5) and (num3 >= num6):
+        return descr.split(',')
+    elif (num4 >= num1) and (num4 >= num2) and (num4 >= num3) and (num4 >= num5) and (num4 >= num6):
+        return descr.split('│')
+    elif (num5 >= num1) and (num5 >= num2) and (num5 >= num3) and (num5 >= num4) and (num5 >= num6):
+        return descr.split('&#x2F')
+    else:
+        return descr.split(' l ')
+
+
+split = [split_chooser(x) for x in description_list]
+splitlist = sum(split, [])
