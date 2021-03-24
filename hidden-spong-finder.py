@@ -213,3 +213,15 @@ for key in list(total_i):
 
     if (len(req.json().get('playlists').get('items'))) <= 1:
         continue
+    else:
+        description_list_2i = [x.get('description') for x in req.json().get('playlists').get('items')]
+        split_2i = [split_chooser(x) for x in description_list_2i]
+        splitlist_2i = sum(split_2i, [])
+        list_1_2i = list(filter(lambda title: dash_finder(title), splitlist_2i))
+        list_cut_2i = [colon_cutter(x) for x in list_1_2i]
+        list_cut_pun_2i = [punc_remover(x) for x in list_cut_2i]
+        list_upper_2i = [x.upper() for x in list_cut_pun_2i]
+        list_upper_2_2i = [x.replace('-', ' - ') for x in list_upper_2i]
+        split_list_2i = [x.split() for x in list_upper_2_2i]
+        sorted_split_2i = [sorted(x) for x in split_list_2i]
+        joined_sorted_2i = [listToString(x) for x in sorted_split_2i]
