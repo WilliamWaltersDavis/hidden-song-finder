@@ -11,6 +11,10 @@ import pandas as pd
 from difflib import SequenceMatcher
 
 
+######## Enter song here within the "" ########
+song_to_search = "Pulse - Showdown"
+
+
 #Spotify API access details
 
 client_id = '7161d3c861074d91ba1a3295c735d249'
