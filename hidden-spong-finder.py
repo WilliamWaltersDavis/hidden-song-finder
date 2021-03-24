@@ -195,3 +195,5 @@ def unique_counter(list_of_songs):
             continue
 
         total_i[song] = 1
+
+unique_counter(joined_sorted)
