@@ -201,3 +201,5 @@ unique_counter(joined_sorted)
 
 #First iteration dictionary (HtL)
 {k: v for k, v in sorted(total_i.items(), key=lambda item: item[1], reverse=True)}
+
+total_2i = total_i
