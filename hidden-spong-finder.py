@@ -166,3 +166,32 @@ def listToString(s):
 
 
 joined_sorted = [listToString(x) for x in sorted_split]
+
+
+# Unique counter for first iteration, counts the number of unique song matches
+
+total_i = {}
+
+
+def unique_counter(list_of_songs):
+    for i in range(len(list_of_songs)):
+        song = list_of_songs[i]
+
+        if song in total_i:
+            total_i[song] += 1
+            continue
+
+        best_match = None
+        best_ratio = 0
+
+        for key in total_i.keys():
+            match_ratio = SequenceMatcher(a=song, b=key).ratio()
+            if match_ratio >= 0.6 and match_ratio >= best_ratio:
+                best_ratio = match_ratio
+                best_match = key
+
+        if best_ratio >= 0.6 and best_match:
+            total_i[best_match] += 1
+            continue
+
+        total_i[song] = 1
