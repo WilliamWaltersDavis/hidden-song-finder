@@ -17,8 +17,8 @@ song_to_search = "Pulse - Showdown"
 
 #Spotify API access details
 
-client_id = '7161d3c861074d91ba1a3295c735d249'
-client_secret = 'c223f0bf1d674c2ea288fc049bc096f8'
+client_id = XXX
+client_secret = XXX
 
 
 # Getting access token for Spotify API
